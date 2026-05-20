@@ -1,5 +1,11 @@
+body {
+  background:
+    radial-gradient(circle at top, rgba(108,99,255,0.15), transparent 40%),
+    var(--bg-primary);
+}
+
 /* =============================================
-   GameLogged — Cadastro Page
+   CONTAINER PRINCIPAL
    ============================================= */
 
 .page-content {
@@ -7,7 +13,12 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
+
+/* =============================================
+   TÍTULOS
+   ============================================= */
 
 .page-title {
   font-family: var(--font-display);
@@ -26,7 +37,21 @@
   margin-bottom: 24px;
 }
 
-/* Eye toggles */
+/* =============================================
+   FORMULÁRIO
+   ============================================= */
+
+#registerForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* =============================================
+   EYE TOGGLE
+   ============================================= */
+
 .eye-toggle {
   position: absolute;
   right: 12px;
@@ -41,15 +66,29 @@
   justify-content: center;
   min-width: 36px;
   min-height: 36px;
-  transition: color var(--transition);
+  transition:
+    color var(--transition),
+    transform var(--transition);
+  cursor: pointer;
 }
-.eye-toggle:hover { color: var(--text-primary); }
 
-/* Password hints */
+.eye-toggle:hover {
+  color: var(--text-primary);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* =============================================
+   PASSWORD HINTS
+   ============================================= */
+
 .password-hints {
   font-size: 0.76rem;
   line-height: 1.9;
   margin: 2px 0 12px 2px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .hint {
@@ -58,9 +97,14 @@
   transition: color var(--transition);
 }
 
-.hint.ok { color: var(--accent-green); }
+.hint.ok {
+  color: var(--accent-green);
+}
 
-/* Termos */
+/* =============================================
+   TERMOS
+   ============================================= */
+
 .terms-label {
   display: flex;
   align-items: flex-start;
@@ -83,6 +127,7 @@
   cursor: pointer;
   transition: all var(--transition);
   position: relative;
+  flex-shrink: 0;
 }
 
 .terms-label input[type="checkbox"]:checked {
@@ -105,7 +150,10 @@
   font-weight: 600;
 }
 
-/* Auth redirect */
+/* =============================================
+   AUTH REDIRECT
+   ============================================= */
+
 .auth-redirect {
   text-align: center;
   font-size: 0.85rem;
@@ -117,4 +165,105 @@
 .auth-redirect a {
   font-weight: 700;
   color: var(--accent-purple);
+}
+
+/* =============================================
+   ERROS
+   ============================================= */
+
+.field-error {
+  display: block;
+  margin-top: 8px;
+  margin-left: 2px;
+  font-size: 0.74rem;
+  color: var(--accent-red);
+}
+
+/* =============================================
+   TABLET
+   ============================================= */
+
+@media (min-width: 768px) {
+
+  .app-shell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 24px;
+    min-height: 100vh;
+  }
+
+  .mobile-card {
+    width: 100%;
+    max-width: 540px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+  }
+
+  .page-content {
+    padding: 52px 44px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .page-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 32px;
+  }
+
+  #registerForm {
+    gap: 18px;
+  }
+
+  .password-hints {
+    padding: 16px 18px;
+    font-size: 0.82rem;
+  }
+
+  .terms-label {
+    font-size: 0.88rem;
+  }
+
+  .auth-redirect {
+    margin-top: 28px;
+    font-size: 0.92rem;
+  }
+}
+
+/* =============================================
+   DESKTOP GRANDE
+   ============================================= */
+
+@media (min-width: 1200px) {
+
+  .mobile-card {
+    max-width: 620px;
+  }
+
+  .page-content {
+    padding: 60px 56px;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  #registerForm {
+    gap: 20px;
+  }
+
+  .password-hints {
+    font-size: 0.85rem;
+  }
 }

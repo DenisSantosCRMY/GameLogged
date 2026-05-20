@@ -1,8 +1,6 @@
 // =============================================
-// GameLogged — Login (com integração à API)
+// GameLogged — Login (UI Only, sem API)
 // =============================================
-
-const API_URL = 'http://localhost:5182/api/auth/login';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -18,18 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Form submit
+  // ── Form submit (UI feedback only – sem API)
   const form = document.getElementById('loginForm');
-  const btnSubmit = form ? form.querySelector('button[type="submit"]') : null;
-
   if (form) {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      clearErrors();
-
       const email    = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       let valid = true;
+
+      clearErrors();
 
       if (!email || !isValidEmail(email)) {
         showError('email', 'Informe um e-mail válido.');
@@ -40,38 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
         valid = false;
       }
 
-      if (!valid) return;
-
-      // Desabilita o botão enquanto aguarda a resposta
-      setLoading(true);
-
-      try {
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password })
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          // Salva dados básicos do usuário na sessão (sem senha)
-          sessionStorage.setItem('usuario', JSON.stringify({
-            id:       data.id,
-            nickname: data.nickname,
-            nome:     data.nome,
-            email:    data.email
-          }));
-          window.location.href = 'perfil.html';
-        } else if (response.status === 401) {
-          showGlobalError('E-mail ou senha incorretos.');
-        } else {
-          showGlobalError('Erro ao tentar fazer login. Tente novamente.');
-        }
-      } catch (err) {
-        console.error(err);
-        showGlobalError('Não foi possível conectar à API. Verifique se o servidor está rodando.');
-      } finally {
-        setLoading(false);
+      if (valid) {
+        // Placeholder: redireciona para perfil (mock)
+        window.location.href = 'perfil.html';
       }
     });
   }
@@ -79,12 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Helpers
   function isValidEmail(v) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  }
-
-  function setLoading(isLoading) {
-    if (!btnSubmit) return;
-    btnSubmit.disabled = isLoading;
-    btnSubmit.textContent = isLoading ? 'Entrando...' : 'Entrar';
   }
 
   function showError(fieldId, msg) {
@@ -98,29 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
     field.style.borderColor = 'var(--accent-red)';
   }
 
-  function showGlobalError(msg) {
-    clearGlobalError();
-    const err = document.createElement('p');
-    err.id = 'global-error';
-    err.className = 'field-error global-error';
-    err.textContent = msg;
-    form.prepend(err);
-  }
-
   function clearErrors() {
-    clearGlobalError();
     document.querySelectorAll('.field-error').forEach(el => el.remove());
     document.querySelectorAll('.input-field').forEach(el => {
       el.style.borderColor = '';
     });
-    document.querySelectorAll('.input-group').forEach(el => {
-      el.classList.remove('has-error');
-    });
-  }
-
-  function clearGlobalError() {
-    const existing = document.getElementById('global-error');
-    if (existing) existing.remove();
   }
 
 });

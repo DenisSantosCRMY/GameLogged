@@ -3,31 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>GameLogged — Perfil</title>
+
   <link rel="stylesheet" href="../css/variables.css" />
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="stylesheet" href="../css/perfil.css" />
 </head>
+
 <body>
 
   <div class="profile-shell">
 
-    <!-- ── Cover Banner ── -->
-    <div class="cover-banner">
-      <div class="cover-gradient"></div>
-      <div class="cover-overlay"></div>
-
-      <!-- top-right menu -->
-      <button class="cover-menu-btn" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- ── Profile Card ── -->
     <div class="profile-card">
+
+      <!-- ── Cover Banner ── -->
+      <div class="cover-banner">
+
+        <div class="cover-gradient"></div>
+        <div class="cover-overlay"></div>
+
+        <!-- top-right menu -->
+        <button class="cover-menu-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
 
       <!-- Avatar -->
       <div class="avatar-wrapper">
+
         <div class="avatar-ring">
           <img
             src="https://i.pravatar.cc/120?img=12"
@@ -35,152 +40,252 @@
             class="avatar-img"
           />
         </div>
+
         <button class="avatar-edit-btn" title="Editar foto">
           <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
           </svg>
         </button>
+
       </div>
 
-      <!-- Identity row -->
-      <div class="identity-row">
-        <div class="identity-info">
-          <h2 class="profile-name">Zero Travel</h2>
-          <!-- Platform badges -->
-          <div class="platform-badges">
-            <!-- Xbox -->
-            <span class="badge badge-xbox" title="Xbox">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-                <path d="M4.102 20.202A11.444 11.444 0 0012 23.5a11.444 11.444 0 007.898-3.298c1.381-1.316-.07-3.233-1.816-4.899-1.429-1.365-3.26-2.771-5.218-3.868-.335-.188-.684-.368-1.037-.538a49.46 49.46 0 00-1.037.538c-1.958 1.097-3.789 2.503-5.218 3.868-1.746 1.666-3.197 3.583-1.47 4.899z"/>
-                <path d="M7.375 3.42C8.45 2.61 10.2 1.5 12 1.5c1.8 0 3.55 1.11 4.625 1.92l.018.013A11.5 11.5 0 0123.5 12a11.456 11.456 0 01-1.563 5.797c-.024-.453-.382-1.235-1.369-2.22-1.475-1.42-3.393-2.88-5.487-4.07a58.5 58.5 0 00-1.09-.57 32.34 32.34 0 00-1.49-.7A32.34 32.34 0 0011 10.937a58.5 58.5 0 00-1.09.57c-2.094 1.19-4.012 2.65-5.487 4.07-.987.985-1.345 1.767-1.369 2.22A11.456 11.456 0 01.5 12 11.5 11.5 0 017.357 3.433z"/>
-              </svg>
-            </span>
-            <!-- PS -->
-            <span class="badge badge-ps" title="PlayStation">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-                <path d="M9.5 5.5v13.2l3 1.1V8.6c0-.6.3-.9.7-.7.5.1.7.6.7 1.2v4.6l3 1.1V8.7c0-2.3-1.3-3.4-3.4-2.7L9.5 7.4V5.5zM0 17.2l3.7 1.4c1.9.7 2.7.6 2.7-1.1v-1.8l-4.4-1.6v1.2l2.3.8v.7c0 .5-.2.5-.7.4L0 16.1v1.1zm21-.7c0 1.3-.8 1.7-2 1.3l-2.8-1V15l2.8 1c.5.2.7.1.7-.4v-.5c0-.4-.2-.6-.7-.8l-1.7-.6c-1.1-.4-1.3-.9-1.3-1.8v-.8c0-1.2.7-1.6 1.9-1.2l2.8 1v1.8l-2.8-1c-.5-.2-.7-.1-.7.4v.4c0 .4.2.6.7.8l1.7.6c1.1.4 1.3.9 1.3 1.8v.8z"/>
-              </svg>
-            </span>
-            <!-- PC -->
-            <span class="badge badge-pc" title="PC">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-                <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
-              </svg>
-            </span>
-            <!-- Discord -->
-            <span class="badge badge-discord" title="Discord">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
-              </svg>
-            </span>
+      <!-- ── Profile Info ── -->
+      <div class="profile-info">
+
+        <!-- Identity row -->
+        <div class="identity-row">
+
+          <div class="identity-info">
+
+            <h2 class="profile-name">Zero Travel</h2>
+
+            <!-- Platform badges -->
+            <div class="platform-badges">
+
+              <span class="badge badge-xbox">X</span>
+
+              <span class="badge badge-ps">P</span>
+
+              <span class="badge badge-pc">PC</span>
+
+              <span class="badge badge-discord">D</span>
+
+            </div>
+
           </div>
+
+          <!-- Gamer tag badge -->
+          <span class="gamer-badge" id="gamerBadge">
+
+            <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12">
+              <path d="M8 0L9.72 5.24H15.28L10.78 8.48L12.5 13.72L8 10.48L3.5 13.72L5.22 8.48L0.72 5.24H6.28L8 0Z"/>
+            </svg>
+
+            Gamer Master
+
+          </span>
+
         </div>
-        <!-- Gamer tag badge -->
-        <span class="gamer-badge">
+
+        <!-- Stats row -->
+        <div class="stats-row">
+
+          <div class="stat-item">
+            <span class="stat-value">12.4k</span>
+            <span class="stat-label">Seguidores</span>
+          </div>
+
+          <div class="stat-divider"></div>
+
+          <div class="stat-item">
+            <span class="stat-value">16</span>
+            <span class="stat-label">Seguindo</span>
+          </div>
+
+          <!-- BOTAO FOLLOW -->
+          <button class="btn-follow" id="followBtn">
+
+            <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+              <path d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+            </svg>
+
+            <span>Seguir</span>
+
+          </button>
+
+        </div>
+
+        <!-- Profile tabs -->
+        <nav class="profile-tabs">
+
+          <button class="tab-btn" data-tab="bio">
+            <span>Perfil</span>
+          </button>
+
+          <button class="tab-btn" data-tab="conquistas">
+            <span>Conquistas</span>
+          </button>
+
+          <button class="tab-btn active" data-tab="jogos">
+            <span>Jogos</span>
+          </button>
+
+          <button class="tab-btn" data-tab="amigos">
+            <span>Amigos</span>
+          </button>
+
+          <button class="tab-btn" data-tab="stats">
+            <span>Stats</span>
+          </button>
+
+        </nav>
+
+        <!-- TAB BIO -->
+        <div class="tab-content hidden" id="tab-bio">
+
+          <div class="tab-placeholder">
+            <p>Informações do perfil em breve</p>
+          </div>
+
+        </div>
+
+        <!-- TAB CONQUISTAS -->
+        <div class="tab-content hidden" id="tab-conquistas">
+
+          <div class="tab-placeholder">
+            <p>Conquistas em breve</p>
+          </div>
+
+        </div>
+
+        <!-- TAB JOGOS -->
+        <div class="tab-content" id="tab-jogos">
+
+          <div class="tab-placeholder">
+
+            <p>Lista de jogos em breve</p>
+
+            <span>
+              A conexão com a API será implementada na próxima fase.
+            </span>
+
+          </div>
+
+        </div>
+
+        <!-- TAB AMIGOS -->
+        <div class="tab-content hidden" id="tab-amigos">
+
+          <div class="tab-placeholder">
+            <p>Lista de amigos em breve</p>
+          </div>
+
+        </div>
+
+        <!-- TAB STATS -->
+        <div class="tab-content hidden" id="tab-stats">
+
+          <div class="tab-placeholder">
+            <p>Estatísticas em breve</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+
+    /* =========================
+       BOTAO SEGUIR
+    ========================= */
+
+    const followBtn = document.getElementById("followBtn");
+
+    followBtn.addEventListener("click", () => {
+
+      followBtn.classList.toggle("following");
+
+      if (followBtn.classList.contains("following")) {
+
+        followBtn.querySelector("span").textContent = "Seguindo";
+
+      } else {
+
+        followBtn.querySelector("span").textContent = "Seguir";
+
+      }
+
+    });
+
+    /* =========================
+       GAMER BADGE
+    ========================= */
+
+    const gamerBadge = document.getElementById("gamerBadge");
+
+    gamerBadge.addEventListener("click", () => {
+
+      gamerBadge.classList.toggle("active-badge");
+
+      if (gamerBadge.classList.contains("active-badge")) {
+
+        gamerBadge.innerHTML = `
+          <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12">
+            <path d="M8 0L9.72 5.24H15.28L10.78 8.48L12.5 13.72L8 10.48L3.5 13.72L5.22 8.48L0.72 5.24H6.28L8 0Z"/>
+          </svg>
+          Elite Gamer
+        `;
+
+      } else {
+
+        gamerBadge.innerHTML = `
           <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12">
             <path d="M8 0L9.72 5.24H15.28L10.78 8.48L12.5 13.72L8 10.48L3.5 13.72L5.22 8.48L0.72 5.24H6.28L8 0Z"/>
           </svg>
           Gamer Master
-        </span>
-      </div>
+        `;
 
-      <!-- Stats row -->
-      <div class="stats-row">
-        <div class="stat-item">
-          <span class="stat-value">12.4k</span>
-          <span class="stat-label">Seguidores</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-value">16</span>
-          <span class="stat-label">Seguindo</span>
-        </div>
-        <button class="btn-follow">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-            <path d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"/>
-          </svg>
-          Seguir
-        </button>
-      </div>
+      }
 
-      <!-- Profile tabs -->
-      <nav class="profile-tabs">
-        <button class="tab-btn" data-tab="bio">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
-            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-          </svg>
-          <span>Perfil</span>
-        </button>
-        <button class="tab-btn" data-tab="conquistas">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
-            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
-            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-          </svg>
-          <span>Conquistas</span>
-        </button>
-        <button class="tab-btn active" data-tab="jogos">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
-            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-          </svg>
-          <span>Jogos</span>
-        </button>
-        <button class="tab-btn" data-tab="amigos">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
-            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
-          </svg>
-          <span>Amigos</span>
-        </button>
-        <button class="tab-btn" data-tab="stats">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
-            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-          </svg>
-          <span>Stats</span>
-        </button>
-      </nav>
+    });
 
-      <!-- Tab content: "Jogos" (active, placeholder) -->
-      <div class="tab-content" id="tab-jogos">
-        <div class="tab-placeholder">
-          <svg viewBox="0 0 48 48" fill="none" width="40" height="40">
-            <path d="M8 14C8 11 11 9 14 9H34C37 9 40 11 40 14V28C40 33 37 37 32 37H16C11 37 8 33 8 28V14Z"
-                  stroke="var(--text-muted)" stroke-width="2" fill="none"/>
-            <rect x="12" y="22" width="3" height="8" rx="1" fill="var(--text-muted)" opacity=".5"/>
-            <rect x="9" y="25" width="9" height="3" rx="1" fill="var(--text-muted)" opacity=".5"/>
-            <circle cx="33" cy="23" r="2" fill="var(--text-muted)" opacity=".5"/>
-            <circle cx="37" cy="27" r="2" fill="var(--text-muted)" opacity=".5"/>
-            <circle cx="33" cy="31" r="2" fill="var(--text-muted)" opacity=".5"/>
-            <circle cx="29" cy="27" r="2" fill="var(--text-muted)" opacity=".5"/>
-          </svg>
-          <p>Lista de jogos em breve</p>
-          <span>A conexão com a API será implementada na próxima fase.</span>
-        </div>
-      </div>
+    /* =========================
+       TABS
+    ========================= */
 
-      <!-- Other tab contents (hidden) -->
-      <div class="tab-content hidden" id="tab-bio">
-        <div class="tab-placeholder">
-          <p>Informações do perfil em breve</p>
-        </div>
-      </div>
-      <div class="tab-content hidden" id="tab-conquistas">
-        <div class="tab-placeholder">
-          <p>Conquistas em breve</p>
-        </div>
-      </div>
-      <div class="tab-content hidden" id="tab-amigos">
-        <div class="tab-placeholder">
-          <p>Lista de amigos em breve</p>
-        </div>
-      </div>
-      <div class="tab-content hidden" id="tab-stats">
-        <div class="tab-placeholder">
-          <p>Estatísticas em breve</p>
-        </div>
-      </div>
+    const tabs = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
 
-    </div><!-- /profile-card -->
-  </div><!-- /profile-shell -->
+    tabs.forEach((tab) => {
 
-  <script src="../js/perfil.js"></script>
+      tab.addEventListener("click", () => {
+
+        const tabId = tab.dataset.tab;
+
+        tabs.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        tab.classList.add("active");
+
+        contents.forEach((content) => {
+          content.classList.add("hidden");
+        });
+
+        document
+          .getElementById(`tab-${tabId}`)
+          .classList.remove("hidden");
+
+      });
+
+    });
+
+  </script>
+
 </body>
 </html>
