@@ -1,69 +1,103 @@
-// =============================================
-// GameLogged — Login (UI Only, sem API)
-// =============================================
+
+
+const API_BASE = 'http://localhost:5182/api';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Eye toggle
-  const eyeToggle = document.getElementById('eyeToggle');
-  const passwordField = document.getElementById('password');
+  // Redireciona se já tiver sessão ativa
+  if (getSession()) {
+    window.location.href = 'perfil.html';
+    return;
+  }
 
+  // Eye toggle
+  const eyeToggle    = document.getElementById('eyeToggle');
+  const passwordField = document.getElementById('password');
   if (eyeToggle && passwordField) {
     eyeToggle.addEventListener('click', () => {
       const isText = passwordField.type === 'text';
       passwordField.type = isText ? 'password' : 'text';
-      eyeToggle.setAttribute('aria-label', isText ? 'Ver senha' : 'Ocultar senha');
     });
   }
 
-  // ── Form submit (UI feedback only – sem API)
-  const form = document.getElementById('loginForm');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email    = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      let valid = true;
+  // Submit
+  const form      = document.getElementById('loginForm');
+  const submitBtn = form?.querySelector('button[type="submit"]');
 
-      clearErrors();
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
 
-      if (!email || !isValidEmail(email)) {
-        showError('email', 'Informe um e-mail válido.');
-        valid = false;
-      }
-      if (!password || password.length < 6) {
-        showError('password', 'Senha deve ter no mínimo 6 caracteres.');
-        valid = false;
+    const email    = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    let valid = true;
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showFieldError('email', 'Informe um e-mail válido.'); valid = false;
+    }
+    if (!password || password.length < 6) {
+      showFieldError('password', 'Mínimo 6 caracteres.'); valid = false;
+    }
+    if (!valid) return;
+
+    setLoading(true);
+
+    try {
+      const res  = await fetch(`${API_BASE}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        showGlobalError(data.message || 'E-mail ou senha incorretos.');
+        setLoading(false);
+        return;
       }
 
-      if (valid) {
-        // Placeholder: redireciona para perfil (mock)
-        window.location.href = 'perfil.html';
-      }
-    });
+      // Salva sessão e redireciona
+      saveSession({ id: data.id, nickname: data.nickname, nome: data.nome, email: data.email });
+      window.location.href = 'perfil.html';
+
+    } catch {
+      showGlobalError('Não foi possível conectar ao servidor. Verifique se a API está rodando.');
+      setLoading(false);
+    }
+  });
+
+  // ── Helpers ──────────────────────────────
+  function saveSession(user) { sessionStorage.setItem('gl_user', JSON.stringify(user)); }
+  function getSession()      { try { return JSON.parse(sessionStorage.getItem('gl_user')); } catch { return null; } }
+
+  function setLoading(on) {
+    if (!submitBtn) return;
+    submitBtn.disabled    = on;
+    submitBtn.textContent = on ? 'Entrando…' : 'Entrar';
   }
 
-  // ── Helpers
-  function isValidEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  function showGlobalError(msg) {
+    clearGlobalError();
+    const el = document.createElement('div');
+    el.id = 'gl-error';
+    el.style.cssText = 'background:rgba(255,82,82,.12);border:1px solid rgba(255,82,82,.35);border-radius:10px;color:#ff5252;font-size:.85rem;padding:10px 14px;margin-bottom:14px;text-align:center;';
+    el.textContent = msg;
+    form.insertBefore(el, form.firstChild);
   }
+  function clearGlobalError() { document.getElementById('gl-error')?.remove(); }
 
-  function showError(fieldId, msg) {
-    const field = document.getElementById(fieldId);
+  function showFieldError(id, msg) {
+    const field = document.getElementById(id);
     if (!field) return;
-    field.closest('.input-group').classList.add('has-error');
-    const err = document.createElement('span');
-    err.className = 'field-error';
-    err.textContent = msg;
-    field.closest('.input-group').appendChild(err);
     field.style.borderColor = 'var(--accent-red)';
+    const span = document.createElement('span');
+    span.className = 'field-error';
+    span.textContent = msg;
+    field.closest('.input-group')?.appendChild(span);
   }
-
   function clearErrors() {
+    clearGlobalError();
     document.querySelectorAll('.field-error').forEach(el => el.remove());
-    document.querySelectorAll('.input-field').forEach(el => {
-      el.style.borderColor = '';
-    });
+    document.querySelectorAll('.input-field').forEach(el => el.style.borderColor = '');
   }
-
 });
