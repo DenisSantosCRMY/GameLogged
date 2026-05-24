@@ -16,17 +16,18 @@ namespace back_end.Controllers
             _context = context;
         }
 
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Jogo>>> GetJogos()
         {
-            var jogos = await _context.Jogos.ToListAsync();
+            var jogos = await _context.Jogo.ToListAsync();
             return Ok(jogos);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Jogo>> GetJogo(int id)
         {
-            var jogo = await _context.Jogos.FindAsync(id);
+            var jogo = await _context.Jogo.FindAsync(id);
             if (jogo == null)
                 return NotFound("Jogo não encontrado.");
             return Ok(jogo);
@@ -35,7 +36,7 @@ namespace back_end.Controllers
         [HttpPost]
         public async Task<IActionResult> CriarJogo([FromBody] Jogo jogo)
         {
-            _context.Jogos.Add(jogo);
+            _context.Jogo.Add(jogo);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetJogo), new { id = jogo.id }, jogo);
         }
@@ -46,7 +47,7 @@ namespace back_end.Controllers
             if (id != jogoUpdate.id)
                 return BadRequest("ID não corresponde.");
 
-            var jogoExistente = await _context.Jogos.FindAsync(id);
+            var jogoExistente = await _context.Jogo.FindAsync(id);
             if (jogoExistente == null)
                 return NotFound("Jogo não encontrado.");
 
@@ -58,13 +59,14 @@ namespace back_end.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteJogo(int id)
         {
-            var jogo = await _context.Jogos.FindAsync(id);
+            var jogo = await _context.Jogo.FindAsync(id);
             if (jogo == null)
                 return NotFound("Jogo não encontrado.");
 
-            _context.Jogos.Remove(jogo);
+            _context.Jogo.Remove(jogo);
             await _context.SaveChangesAsync();
             return Ok();
         }
+        
     }
 }

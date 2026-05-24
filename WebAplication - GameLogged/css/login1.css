@@ -1,15 +1,12 @@
-/* =============================================
-   GameLogged — Login Page
-   ============================================= */
-
 .page-content {
   padding: 40px 24px 36px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
-/* Empurra o conteúdo para o centro vertical no mobile */
+/* Centralização apenas no mobile */
 @media (max-width: 599px) {
   .page-content {
     justify-content: center;
@@ -33,7 +30,7 @@
   margin-bottom: 28px;
 }
 
-/* Eye toggle */
+/* Botão mostrar senha */
 .eye-toggle {
   position: absolute;
   right: 12px;
@@ -45,28 +42,67 @@
   padding: 6px;
   display: flex;
   align-items: center;
-  transition: color var(--transition);
+  justify-content: center;
   min-width: 36px;
   min-height: 36px;
-  justify-content: center;
+  cursor: pointer;
+  transition: color var(--transition);
 }
-.eye-toggle:hover { color: var(--text-primary); }
+
+.eye-toggle:hover {
+  color: var(--text-primary);
+}
+
+/* Linha lembrar e esqueceu senha */
+.auth-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 32px;
+}
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
 
 .forgot-link {
   font-size: 0.83rem;
   font-weight: 600;
   color: var(--accent-purple);
-  min-height: 44px;
-  display: flex;
-  align-items: center;
+  text-decoration: none;
 }
 
+/* Divisor */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Botões sociais */
 .oauth-stack {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+/* Redirecionamento */
 .auth-redirect {
   text-align: center;
   font-size: 0.85rem;
@@ -78,4 +114,5 @@
 .auth-redirect a {
   font-weight: 700;
   color: var(--accent-purple);
+  text-decoration: none;
 }

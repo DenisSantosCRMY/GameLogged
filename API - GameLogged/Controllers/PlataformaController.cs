@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace back_end.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class PlataformaController : Controller
     {

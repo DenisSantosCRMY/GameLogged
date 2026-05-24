@@ -5,14 +5,15 @@ namespace back_end.Models
 {
     public class Catalogo
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
+        [Key] //chave primária
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //auto-incremento
         public int id { get; set; }
 
-        [Required]
-        [ForeignKey("Jogo")]
+        [Required] //corresponde ao NN (Not Null)
+        [ForeignKey("Jogo")] //chave estrangeira
         public int id_jpjogos { get; set; }
-        public Jogo Jogo { get; set; }
+        public Jogo Jogo { get; set; } //referencia à classe Jogo
 
         [Required]
         [ForeignKey("Usuario")]
@@ -24,5 +25,6 @@ namespace back_end.Models
 
         [Column(TypeName = "date")]
         public DateTime dt_adicionado { get; set; }
+        
     }
 }

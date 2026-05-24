@@ -7,23 +7,25 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace back_end.Models
 {
+    [Table("plataforma")]
     public class Plataforma
     {
-        // Campo Id
-        // Identificador único da plataforma
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
 
-        // Nome da plataforma
-        public string Nome { get; set; }
+        [Key] //chave primária
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //auto-incremento
+        [Column("id")]
+        public int id { get; set; }
 
-        // Descrição da plataforma
-        public string Descricao { get; set; }
+        [Column("nome")]
+        public string nome { get; set; }
+
+        [Column("descricao")]
+        public string descricao { get; set; }
 
         // Define se a plataforma está ativa
         // true = ativa
         // false = inativa
-        public bool Ativo { get; set; }
+        [Column("ativo")]
+        public bool ativo { get; set; }
     }
 }

@@ -57,7 +57,7 @@ TemporaryDependencyNodeTargetIdentifier=net10.0
 [sourceFiles]
 Controllers/
  AuthController.cs
- UsuariosController.cs
+ UsuarioController.cs
 Data/AppDbContext.cs
 Migrations/
  20260505223851_Inicial.cs

@@ -38,6 +38,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btAtualizar = new System.Windows.Forms.Button();
             this.btLogs = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,12 +139,22 @@
             this.btLogs.UseVisualStyleBackColor = true;
             this.btLogs.Click += new System.EventHandler(this.btLogs_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(12, 293);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(216, 37);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Conquistas";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // AdminPainel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(17)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(1141, 667);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.btLogs);
             this.Controls.Add(this.btAtualizar);
             this.Controls.Add(this.button2);
@@ -174,5 +185,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btAtualizar;
         private System.Windows.Forms.Button btLogs;
+        private System.Windows.Forms.Button button3;
     }
 }

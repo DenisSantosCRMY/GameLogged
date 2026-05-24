@@ -16,6 +16,8 @@ namespace back_end.Controllers
             _context = context;
         }
 
+        
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Conquista>>> GetConquistas()
         {
@@ -80,5 +82,6 @@ namespace back_end.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+        
     }
 }

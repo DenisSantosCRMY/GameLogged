@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace back_end.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsuariosController : ControllerBase
+    [ApiController] // Define que esta classe é um controlador de API
+    [Route("api/[controller]")] // Define a rota base para este controlador, onde [controller] será substituído por "usuarios"
+    public class UsuarioController : ControllerBase
     {
         private readonly AppDbContext _appDbContext;
 
         //constructor para injetar o AppDbContext
-        public UsuariosController(AppDbContext appDbContext)
+        public UsuarioController(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
@@ -32,13 +32,15 @@ namespace back_end.Controllers
 
         }
 
+        //efetuar a consulta para verificar se o usuário existe
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-            var usuarios = await _appDbContext.Usuario.ToListAsync();
-            return Ok(usuarios);
+            var usuario = await _appDbContext.Usuario.ToListAsync();
+            return Ok(usuario);
         }
 
+        //efetuar a consulta para verificar se o usuário existe pelo ID
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
@@ -49,6 +51,8 @@ namespace back_end.Controllers
             }
             return Ok(usuario);
         }
+
+        //efetuar a consulta para verificar se o usuário existe pelo ID, se não existir, criar um novo usuário
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUsuario(int id, [FromBody] Usuario usuarioUpdate)
         {
@@ -68,6 +72,8 @@ namespace back_end.Controllers
             await _appDbContext.SaveChangesAsync();
             return StatusCode(201, usuarioExistente);
         }
+
+        //efetuar a consulta para verificar se o usuário existe pelo ID, se existir, excluir o usuário
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {

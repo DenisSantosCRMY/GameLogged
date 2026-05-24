@@ -4,8 +4,8 @@ namespace back_end.Models
 {
     public class LoginRequest
     {
-        [Required]
-        [EmailAddress]
+        [Required] //not null
+        [EmailAddress] //validação de formato de email
         public string email { get; set; }
 
         [Required]

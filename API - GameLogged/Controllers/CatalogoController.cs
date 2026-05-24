@@ -16,6 +16,7 @@ namespace back_end.Controllers
             _context = context;
         }
 
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Catalogo>>> GetCatalogos()
         {
@@ -83,5 +84,6 @@ namespace back_end.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+        
     }
 }

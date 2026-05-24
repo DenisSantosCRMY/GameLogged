@@ -16,6 +16,7 @@ namespace back_end.Controllers
             _context = context;
         }
 
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Seguidor>>> GetSeguidores()
         {
@@ -73,5 +74,6 @@ namespace back_end.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+        
     }
 }

@@ -5,14 +5,15 @@ namespace back_end.Models
 {
     public class Conquista
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
+        [Key] //chave primária
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //auto-incremento
         public int id { get; set; }
 
-        [Required]
-        [ForeignKey("Jogo")]
+        [Required] //not null
+        [ForeignKey("Jogo")] //chave estrangeira para a tabela Jogo
         public int id_jp { get; set; }
-        public Jogo Jogo { get; set; }
+        public Jogo Jogo { get; set; } //referencia à classe Jogo
 
         [MaxLength(255)]
         public string titulo { get; set; }
@@ -22,5 +23,6 @@ namespace back_end.Models
         public string banner_conquista { get; set; }
 
         public int score { get; set; }
+        
     }
 }

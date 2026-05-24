@@ -1,0 +1,278 @@
+/* =============================================
+   GameLogged — Global Reset & Base
+   Mobile-first | Responsivo
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--accent-purple);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--accent-pink); }
+
+input, button, textarea, select {
+  font-family: var(--font-body);
+  font-size: inherit;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button { cursor: pointer; }
+img { display: block; max-width: 100%; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 99px; }
+
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── App Shell — mobile ocupa tela toda ── */
+.app-shell {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 0;
+}
+
+.mobile-card {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg-secondary);
+  border-radius: 0;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Inputs ── */
+.input-group {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.input-group .icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+/* font-size >= 16px evita zoom automático no iOS */
+.input-field {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  padding: 14px 14px 14px 42px;
+  font-size: 1rem;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.input-field::placeholder { color: var(--text-muted); }
+
+.input-field:focus {
+  border-color: var(--border-focus);
+  background: var(--bg-input-hover);
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.15);
+}
+
+/* ── Botões — min 48px de área de toque ── */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background var(--transition);
+}
+.btn:active::after { background: rgba(255,255,255,0.1); }
+
+.btn-primary {
+  background: var(--gradient-brand);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(108,99,255,0.4);
+}
+.btn-primary:active { transform: scale(0.99); }
+
+.btn-google {
+  background: #fff;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.btn-discord {
+  background: #5865F2;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(88,101,242,0.4);
+}
+
+/* ── Divisor ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin: 20px 0;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-default);
+}
+
+/* ── Checkbox ── */
+.check-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0 20px;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.check-label input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 1.5px solid var(--text-muted);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.check-label input[type="checkbox"]:checked {
+  background: var(--accent-purple);
+  border-color: var(--accent-purple);
+}
+
+.check-label input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: #fff;
+  font-size: 11px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ── Logo ── */
+.logo-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.logo-icon svg {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 0 16px rgba(108,99,255,0.55));
+}
+
+/* ── Erros ── */
+.field-error {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--accent-red);
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+/* ── Tablet / Desktop >= 600px ── */
+@media (min-width: 600px) {
+  .app-shell {
+    align-items: center;
+    padding: 32px 16px;
+    background:
+      radial-gradient(ellipse 70% 60% at 15% 50%, rgba(108,99,255,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 85% 50%, rgba(224,64,251,0.09) 0%, transparent 70%);
+  }
+
+  .mobile-card {
+    min-height: auto;
+    max-width: 440px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-card);
+    animation: cardIn 0.45s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
