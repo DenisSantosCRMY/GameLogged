@@ -95,6 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlterarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlterarUsuario.Designer.cs">
+      <DependentUpon>AlterarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastraUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AlterarUsuario.resx">
+      <DependentUpon>AlterarUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastraUsuario.resx">
       <DependentUpon>CadastraUsuario.cs</DependentUpon>
     </EmbeddedResource>

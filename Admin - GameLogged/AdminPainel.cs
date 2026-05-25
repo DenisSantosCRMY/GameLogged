@@ -25,48 +25,72 @@ namespace Admin___GameLogged
 
         }
 
+        //funções do CRUD (Create, Read, Update, Delete)
+
         public void editar_dados()
         {
+            //instanciar o formulário de cadastro
+            using (AlterarUsuario alterar = new AlterarUsuario())
+            {
+                //exibir como modal (tentando bloquear a tela de fundo)
+                var viewAlterar = alterar.ShowDialog();
+
+                if (viewAlterar == DialogResult.OK)
+                {
+                    // Depois que o formulário de cadastro for fechado, recarregamos os dados para mostrar o novo usuário
+                    carregar_Dados();
+                }
+            }
 
         }
 
+        //excluir os dados do banco de dados
         public void excluir_dados(string idUsuario)
         {
-            // 1. Usamos a classe que você já criou para pegar a conexão
-            ConexaoBanco bd = new ConexaoBanco();
+            //confirmação de deleção
+            DialogResult confirmacao = MessageBox.Show($"Tem certeza que deseja excluir o usuário com ID {idUsuario}?\nEsta ação não poderá ser desfeita.", "Confirmar Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // O 'using' garante que a conexão abra e feche sem você se preocupar
-            using (MySqlConnection conexao = bd.conectar())
+            //se for não, simplesmente retorna e não faz nada
+            if (confirmacao == DialogResult.No)
             {
-                try
+                return;
+            }
+
+            //se for sim, continua com a exclusão
+            try
+            {
+                // conectar com o banco de dados
+                ConexaoBanco conexao = new ConexaoBanco();
+
+                //query de delete
+                string sql = "DELETE FROM gamelogged.usuario WHERE id = @id";
+
+                MySqlParameter[] parametros = new MySqlParameter[]
                 {
-                    conexao.Open();
+                    new MySqlParameter("@id", idUsuario)
+                };
 
-                    // 2. Preparamos o comando de exclusão
-                    string sql = "DELETE FROM gamelogged.usuario WHERE id = @id";
-                    MySqlCommand cmd = new MySqlCommand(sql, conexao);
-                    cmd.Parameters.AddWithValue("@id", idUsuario);
+                int linhas = conexao.ExecutarComandoQuery(sql, parametros);
 
-                    // 3. Executamos o comando
-                    int linhasAfetadas = cmd.ExecuteNonQuery();
-
-                    if (linhasAfetadas > 0)
-                    {
-                        MessageBox.Show("Usuário removido com sucesso!");
-
-                        // --- O PULO DO GATO ---
-                        // Chamamos o método carregar_Dados() aqui. 
-                        // Ele vai limpar o grid e buscar os dados atualizados do banco.
-                        carregar_Dados();
-                    }
-                }
-                catch (Exception ex)
+                if (linhas > 0)
                 {
-                    MessageBox.Show("Erro ao excluir: " + ex.Message);
+                    MessageBox.Show("Usuário removido com sucesso!");
+
+                    carregar_Dados();
                 }
+                else
+                {
+                    MessageBox.Show("Nenhum usuário encontrado com o ID fornecido.");
+                }
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir: " + ex.Message);
             }
         }
 
+        //cadastrar um novo usuário (abrir o formulário de cadastro)
         public void cadastrar_usuario()
         {
             //instanciar o formulário de cadastro
@@ -83,16 +107,15 @@ namespace Admin___GameLogged
             }
         }
 
+        //procurar os dados do usuário (filtro de pesquisa)
         public void procurar_dados()
         {
 
         }
 
-        public void acesso_banco()
-        {
+        //tudo abaixo são tratamento de informações e eventos do datagrid, como clique nos botões, etc
 
-        }
-
+        //refresh da tabela (recarregar os dados do banco para o datagrid)
         public void carregar_Dados()
         {
             dataGridView1.Columns.Clear(); //limpar os botões
@@ -148,6 +171,7 @@ namespace Admin___GameLogged
             }
         }
 
+        //tratar o datagrid para saber qual botão foi clicado, e qual linha, para pegar o ID do usuário e passar para os métodos de editar ou excluir
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ignora se clicar no cabeçalho ou fora das linhas
@@ -166,6 +190,7 @@ namespace Admin___GameLogged
                 // Chama seu método (ajuste os parâmetros se necessário)
                 // editar_dados(idSelecionado, nome); 
                 MessageBox.Show("Abrindo edição do usuário: " + nome);
+               
             }
 
             // 3. VERIFICA SE CLICOU NO EXCLUIR
@@ -189,21 +214,49 @@ namespace Admin___GameLogged
             }
         }
 
+
+        //todo os botões que possuim na interface, como o de logout, dashboard, etc, podem ser tratados aqui, para abrir outros formulários ou realizar outras ações
+
+        //abrir o datagrid para mostrar os usuários (dashboard)
         private void bt_usuario_Click(object sender, EventArgs e)
         {
             
         }
 
+        //abrir o formulário de solicitações (ainda não criado)
         private void bt_solicitações_Click(object sender, EventArgs e)
         {
 
         }
 
+        //abrir o formulário de dashboard (ainda não criado)
         private void bt_dashboard_Click(object sender, EventArgs e)
         {
 
         }
 
+        //abrir o formulário de cadastro para criar um novo usuário
+        private void bt_novo_cadastro_Click(object sender, EventArgs e)
+        {
+            cadastrar_usuario();
+        }
+
+        //atualizar os dados do datagrid (refresh)
+        private void btAtualizar_Click(object sender, EventArgs e)
+        {
+            carregar_Dados();
+        }
+
+        //abrir o formulário de logs (ainda não criado)
+        private void btLogs_Click(object sender, EventArgs e)
+        {
+            LogsSystem logs = new LogsSystem();
+            logs.Show();
+            this.Hide();
+        }
+
+
+        //fazer logout
         private void bt_logout_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -211,21 +264,5 @@ namespace Admin___GameLogged
             this.Hide();
         }
 
-        private void bt_novo_cadastro_Click(object sender, EventArgs e)
-        {
-            cadastrar_usuario();
-        }
-
-        private void btAtualizar_Click(object sender, EventArgs e)
-        {
-            carregar_Dados();
-        }
-
-        private void btLogs_Click(object sender, EventArgs e)
-        {
-            LogsSystem logs = new LogsSystem();
-            logs.Show();
-            this.Hide();
-        }
     }
 }

@@ -19,6 +19,7 @@ namespace Admin___GameLogged
             return new MySqlConnection(dadosConexao);
         }
 
+        //método para executar os comandos de insert, update e delete, ele recebe a query e os parametros (caso haja) e retorna o numero de linhas afetadas
         public int ExecutarComandoQuery(string sql, MySqlParameter[] parametros = null)
         {
             using (MySqlConnection conexao = conectar())
@@ -46,6 +47,7 @@ namespace Admin___GameLogged
             }
         }
 
+        //método para executar os comandos de select, ele recebe a query e retorna um DataTable com os dados consultados
         public DataTable ExecutarConsultar(string sql)
         {
             using (MySqlConnection conexao = conectar())

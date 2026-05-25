@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,20 +11,20 @@ using System.Windows.Forms;
 
 namespace Admin___GameLogged
 {
-    public partial class CadastrarUsuario : Form
+    public partial class AlterarUsuario : Form
     {
-        public CadastrarUsuario()
+        public AlterarUsuario()
         {
             InitializeComponent();
         }
 
-        //botão para cadastrar um novo usuario, com validação de campos e tratamento de erros
-        private void btCadastrar_Click(object sender, EventArgs e)
+        //botão para alterar um usuario existente, com validação de campos e tratamento de erros
+        private void btAlterar_Click(object sender, EventArgs e)
         {
             //verificar se os campos estão preenchidos
             if (string.IsNullOrEmpty(txtNickname.Text) || string.IsNullOrEmpty(txtNome.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtDtnasc.Text))
             {
-                MessageBox.Show("Preencha todos os campos para cadastrar um usuário.");
+                MessageBox.Show("Preencha todos os campos para alterar um usuário.");
                 return;
 
             }
@@ -34,7 +34,7 @@ namespace Admin___GameLogged
                 //instanciando conexao
                 ConexaoBanco conexao = new ConexaoBanco();
 
-                string sql = "INSERT INTO gamelogged.usuario (nickname, nome, email, password, dt_nasc) VALUES (@nickname, @nome, @email, @password, @dtnasc)";
+                string sql = "UPDATE gamelogged.usuario SET nome = @nome, email = @email, password = @password, dt_nasc = @dtnasc WHERE nickname = @nickname";
 
                 //coleta os parametros dentro da tela
                 MySqlParameter[] parametros = new MySqlParameter[]
@@ -51,15 +51,15 @@ namespace Admin___GameLogged
 
                 if (resultado > 0)
                 {
-                    GerenciadorLogs.RegistrarLog($"Usuário '{txtNickname.Text}' cadastrado com sucesso.");
-                    MessageBox.Show("Usuário cadastrado com sucesso!");
+                    GerenciadorLogs.RegistrarLog($"Usuário '{txtNickname.Text}' alterado com sucesso.");
+                    MessageBox.Show("Usuário alterado com sucesso!");
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    GerenciadorLogs.RegistrarLog($"Falha ao cadastrar usuário '{txtNickname.Text}'.");
-                    MessageBox.Show("Erro ao cadastrar usuário. Tente novamente.");
+                    GerenciadorLogs.RegistrarLog($"Falha ao alterar usuário '{txtNickname.Text}'.");
+                    MessageBox.Show("Erro ao alterar usuário. Tente novamente.");
                 }
 
             }

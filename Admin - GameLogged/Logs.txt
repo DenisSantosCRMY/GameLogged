@@ -5,3 +5,9 @@
 [2026-05-19 21:39:01] Usuário 'barauna' cadastrado com sucesso.
 [2026-05-20 22:11:43] Login bem-sucedido para o usuário: msngl
 [2026-05-24 20:33:34] Login bem-sucedido para o usuário: msngl
+[2026-05-24 21:26:46] Login bem-sucedido para o usuário: msngl
+[2026-05-24 21:27:10] Usuário 'teste' cadastrado com sucesso.
+[2026-05-24 21:29:59] Login bem-sucedido para o usuário: msngl
+[2026-05-24 21:39:42] Login bem-sucedido para o usuário: msngl
+[2026-05-24 21:41:05] Login bem-sucedido para o usuário: msngl
+[2026-05-24 21:49:57] Login bem-sucedido para o usuário: msngl
