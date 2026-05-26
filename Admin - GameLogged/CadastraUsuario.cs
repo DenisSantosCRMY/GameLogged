@@ -65,6 +65,7 @@ namespace Admin___GameLogged
             }
             catch (Exception ex)
             {
+                GerenciadorLogs.RegistrarLog($"Erro ao cadastrar usuário '{txtNickname.Text}'. Detalhes do erro: {ex.Message}");
                 MessageBox.Show("Ocorreu um erro: " + ex.Message, "Erro critico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -1,13 +1,8 @@
-[2026-05-19 21:26:25] testes
-[2026-05-19 21:36:31] Login bem-sucedido para o usuário: msngl
-[2026-05-19 21:36:54] Usuário 'teste2' cadastrado com sucesso.
-[2026-05-19 21:38:22] Login bem-sucedido para o usuário: msngl
-[2026-05-19 21:39:01] Usuário 'barauna' cadastrado com sucesso.
-[2026-05-20 22:11:43] Login bem-sucedido para o usuário: msngl
-[2026-05-24 20:33:34] Login bem-sucedido para o usuário: msngl
-[2026-05-24 21:26:46] Login bem-sucedido para o usuário: msngl
-[2026-05-24 21:27:10] Usuário 'teste' cadastrado com sucesso.
-[2026-05-24 21:29:59] Login bem-sucedido para o usuário: msngl
-[2026-05-24 21:39:42] Login bem-sucedido para o usuário: msngl
-[2026-05-24 21:41:05] Login bem-sucedido para o usuário: msngl
-[2026-05-24 21:49:57] Login bem-sucedido para o usuário: msngl
+[2026-05-25 22:22:29] Login bem-sucedido para o usuário: msngl
+[2026-05-25 22:22:37] Admin abriu o formulário de cadastro de usuário.
+[2026-05-25 22:22:57] Usuário 'testando' cadastrado com sucesso.
+[2026-05-25 22:23:02] Admin abriu o formulário de edição para o usuário com ID 4.
+[2026-05-25 22:23:07] Usuário 'testando1' alterado com sucesso.
+[2026-05-25 22:23:19] Usuário com ID 4 foi excluído.
+[2026-05-25 22:23:23] Admin realizou logout.
+[2026-05-25 22:24:41] Login bem-sucedido para o usuário: msngl

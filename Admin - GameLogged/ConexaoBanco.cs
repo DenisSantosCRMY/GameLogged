@@ -47,6 +47,34 @@ namespace Admin___GameLogged
             }
         }
 
+        //criado para o login
+        public object ExecutarConsultaScalar(string sql, MySqlParameter[] parametros = null)
+        {
+            using (MySqlConnection conexao = conectar())
+            {
+                try
+                {
+                    conexao.Open();
+                    using (MySqlCommand comando = new MySqlCommand(sql, conexao))
+                    {
+                        //verificando se possui valor dentro do parametros (apenas por garantia)
+                        if (parametros != null)
+                        {
+                            comando.Parameters.AddRange(parametros);
+                        }
+
+                        //Efetuar comando do CRUD
+                        return comando.ExecuteScalar();
+                    }
+                }
+                //para caso de problema nas queries
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro ao executar o comando no banco de dados: " + ex.Message);
+                }
+            }
+        }
+
         //método para executar os comandos de select, ele recebe a query e retorna um DataTable com os dados consultados
         public DataTable ExecutarConsultar(string sql)
         {
@@ -59,6 +87,7 @@ namespace Admin___GameLogged
                     DataTable data = new DataTable();
                     adapter.Fill(data);
                     return data;
+                    
 
                 }
                 catch (Exception ex)

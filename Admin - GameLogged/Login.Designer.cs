@@ -39,13 +39,18 @@
             // 
             // LoginAcesso
             // 
+            this.LoginAcesso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(66)))), ((int)(((byte)(222)))));
+            this.LoginAcesso.FlatAppearance.BorderSize = 0;
+            this.LoginAcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginAcesso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LoginAcesso.ForeColor = System.Drawing.Color.White;
             this.LoginAcesso.Location = new System.Drawing.Point(76, 329);
             this.LoginAcesso.Name = "LoginAcesso";
-            this.LoginAcesso.Size = new System.Drawing.Size(139, 23);
+            this.LoginAcesso.Size = new System.Drawing.Size(139, 31);
             this.LoginAcesso.TabIndex = 0;
             this.LoginAcesso.Text = "Login";
             this.LoginAcesso.UseMnemonic = false;
-            this.LoginAcesso.UseVisualStyleBackColor = true;
+            this.LoginAcesso.UseVisualStyleBackColor = false;
             this.LoginAcesso.Click += new System.EventHandler(this.btLogin_Click);
             // 
             // txtUser
@@ -88,9 +93,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.Image = global::Admin___GameLogged.Properties.Resources.Captura_de_tela_2026_05_19_080312;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(38, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 148);
+            this.pictureBox1.Size = new System.Drawing.Size(233, 149);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 

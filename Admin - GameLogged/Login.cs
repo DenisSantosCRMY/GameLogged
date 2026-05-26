@@ -23,23 +23,23 @@ namespace Admin___GameLogged
             //coletar os dados informados pelo usuário
             string acesso = txtUser.Text;
             string senha = txtPassword.Text;
-
-            //efetuar conexão com o banco de dados e verificar se os dados estão corretos
-            ConexaoBanco bd = new ConexaoBanco();
-            MySqlConnection conexao = bd.conectar();
-                try
+            try
             {
-                //efetua a abertura do banco de dados
-                conexao.Open();
+                //efetuar conexão com o banco de dados e verificar se os dados estão corretos
+                ConexaoBanco conexao = new ConexaoBanco();
+
 
                 //query para verificar se o usuário e senha existem na tabela
                 string sql = "SELECT COUNT(*) FROM gamelogged.funcionario WHERE acesso = @user AND password = @pass";
-                MySqlCommand cmd = new MySqlCommand(sql, conexao);
-                cmd.Parameters.AddWithValue("@user", acesso);
-                cmd.Parameters.AddWithValue("@pass", senha);
+
+                MySqlParameter[] parametros = new MySqlParameter[]
+                {
+                    new MySqlParameter("@user", acesso),
+                    new MySqlParameter("@pass", senha)
+                };
 
                 //executa a query e obtém o resultado
-                int resultado = Convert.ToInt32(cmd.ExecuteScalar());
+                int resultado = Convert.ToInt32(conexao.ExecutarConsultaScalar(sql, parametros));
 
                 //verifica se o resultado é maior que 0, ou seja, se encontrou um usuário com as credenciais fornecidas
                 if (resultado > 0)
@@ -59,11 +59,8 @@ namespace Admin___GameLogged
             }
             catch (Exception ex)
             {
+                GerenciadorLogs.RegistrarLog($"Erro ao autenticar o usuário: {acesso}. Detalhes do erro: {ex.Message}");
                 MessageBox.Show("Erro ao autenticar: " + ex.Message);
-            }
-            finally
-            {
-                conexao.Close();
             }
         }
 

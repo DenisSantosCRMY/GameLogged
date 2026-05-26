@@ -129,29 +129,39 @@ namespace Admin___GameLogged
             // 
             // btAlterar
             // 
-            this.btAlterar.Location = new System.Drawing.Point(51, 378);
+            this.btAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(66)))), ((int)(((byte)(222)))));
+            this.btAlterar.FlatAppearance.BorderSize = 0;
+            this.btAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAlterar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btAlterar.ForeColor = System.Drawing.Color.White;
+            this.btAlterar.Location = new System.Drawing.Point(12, 361);
             this.btAlterar.Name = "btAlterar";
-            this.btAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btAlterar.Size = new System.Drawing.Size(100, 40);
             this.btAlterar.TabIndex = 10;
             this.btAlterar.Text = "Alterar";
-            this.btAlterar.UseVisualStyleBackColor = true;
+            this.btAlterar.UseVisualStyleBackColor = false;
             this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(203, 378);
+            this.btCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(66)))), ((int)(((byte)(222)))));
+            this.btCancelar.FlatAppearance.BorderSize = 0;
+            this.btCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btCancelar.ForeColor = System.Drawing.Color.White;
+            this.btCancelar.Location = new System.Drawing.Point(222, 361);
             this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btCancelar.Size = new System.Drawing.Size(106, 40);
             this.btCancelar.TabIndex = 11;
             this.btCancelar.Text = "Cancelar";
-            this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.UseVisualStyleBackColor = false;
             // 
             // AlterarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(17)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(340, 457);
+            this.ClientSize = new System.Drawing.Size(340, 412);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAlterar);
             this.Controls.Add(this.txtDtnasc);
