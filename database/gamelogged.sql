@@ -246,7 +246,7 @@ CREATE TABLE `usuario` (
   `banner_perfil` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `dt_nasc` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +255,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'srtravel','miguel','miguel@gmail.com','teste123','teste','teste','2026-05-24');
+INSERT INTO `usuario` VALUES (1,'srtravel','miguel','miguel@gmail.com','teste123','teste','teste','2026-05-24'),(3,'teste1','teste1','teste@teste','teste1',NULL,NULL,'2012-12-12'),(5,'teste1201','teste1201','teste@teste.com.br','12345',NULL,NULL,'2012-12-12');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-24 22:24:30
+-- Dump completed on 2026-05-26 22:37:26

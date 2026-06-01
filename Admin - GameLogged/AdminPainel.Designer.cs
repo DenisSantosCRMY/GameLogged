@@ -235,7 +235,7 @@
             this.Controls.Add(this.btNovoCadastro);
             this.Controls.Add(this.dataGridView1);
             this.Name = "AdminPainel";
-            this.Text = "                ";
+            this.Text = "AdminPainel";
             this.Load += new System.EventHandler(this.Painel_Dash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);

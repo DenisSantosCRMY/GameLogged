@@ -1,0 +1,173 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+    background:#050512;
+    min-height:100vh;
+    min-width:320px;
+
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+
+  padding:20px;
+}
+
+/* CONTAINER */
+
+.container{
+  width:100%;
+  max-width:420px;
+  min-height:100vh;
+
+  display:flex;
+  flex-direction:column;
+
+  padding-top:60px;
+}
+
+/* LOGO */
+
+.logo-area{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.logo-icon{
+  width:80px;
+  margin:0 auto 18px;
+}
+
+.logo-icon svg{
+  width:100%;
+}
+
+/* TITULOS */
+
+.title{
+  font-size:2rem;
+  font-weight:600;
+}
+
+.title span{
+  color:white;
+}
+
+.subtitle{
+  color:#8f8f9d;
+  font-size:0.8rem;
+  margin-top:4px;
+}
+
+/* CONTEUDO */
+
+.content{
+  width:100%;
+}
+
+.content h2{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:20px;
+}
+
+.description{
+  text-align:center;
+  color:#d0d0d0;
+  line-height:1.8;
+  font-size:1rem;
+
+  margin-bottom:40px;
+}
+
+/* BOTAO */
+
+.main-button{
+  width:100%;
+  height:52px;
+
+  border:none;
+  border-radius:14px;
+
+  background:#5d4dff;
+  color:white;
+
+  font-size:1rem;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.main-button:hover{
+  opacity:0.9;
+  transform:scale(1.01);
+}
+
+/* AREA AJUDA */
+
+.help-area{
+  margin-top:55px;
+  margin-bottom:35px;
+
+  text-align:center;
+}
+
+.help-area h3{
+  font-size:1.8rem;
+  margin-bottom:18px;
+}
+
+.help-area p{
+  color:#d0d0d0;
+  line-height:1.8;
+}
+
+/* TABLET */
+
+@media (min-width:768px){
+
+  .container{
+    min-height:auto;
+
+    background:#0b0b1d;
+
+    border-radius:28px;
+
+    padding:
+      60px
+      50px;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+      0 0 30px rgba(0,0,0,0.5);
+  }
+
+  .logo-area{
+    margin-bottom:60px;
+  }
+
+}
+
+/* DESKTOP */
+
+@media (min-width:1200px){
+
+  .container{
+    max-width:500px;
+  }
+
+  .content h2{
+    font-size:2.2rem;
+  }
+
+}

@@ -1,4 +1,6 @@
-
+// =============================================
+// GameLogged — Cadastro (UI Only, sem API)
+// =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
